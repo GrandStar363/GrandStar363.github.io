@@ -1,46 +1,40 @@
 import type { Role } from "@/content";
 import { Disclosure } from "@/shared/ui/Disclosure";
 import { Section } from "@/shared/ui/Section";
-import { CompanyEntry } from "./CompanyEntry";
-import { groupRolesByCompany, type CompanyGroup } from "./group-roles";
+import { RoleEntry } from "./RoleEntry";
 
 interface ExperienceProps {
   id: string;
+  /** Roles in display order, newest first (the content contract's ordering). */
   roles: readonly Role[];
-  /** Number of most recent employers shown before "Earlier experience". */
-  visibleCompanies?: number;
+  /** Number of most recent roles shown before "Earlier experience". */
+  visibleRoles?: number;
 }
 
-const CompanyList = ({ groups }: { groups: CompanyGroup[] }) => (
+const countLabel = (count: number, noun: string) =>
+  `${count} ${noun}${count === 1 ? "" : "s"}`;
+
+const RoleList = ({ roles }: { roles: readonly Role[] }) => (
   <ol>
-    {groups.map((group) => (
-      <CompanyEntry key={group.company} group={group} />
+    {roles.map((role) => (
+      <RoleEntry key={role.id} role={role} />
     ))}
   </ol>
 );
 
-export function Experience({
-  id,
-  roles,
-  visibleCompanies = 4,
-}: ExperienceProps) {
-  const groups = groupRolesByCompany(roles);
-  const recent = groups.slice(0, visibleCompanies);
-  const earlier = groups.slice(visibleCompanies);
-  const earlierRoleCount = earlier.reduce(
-    (total, group) => total + group.roles.length,
-    0,
-  );
+export function Experience({ id, roles, visibleRoles = 8 }: ExperienceProps) {
+  const recent = roles.slice(0, visibleRoles);
+  const earlier = roles.slice(visibleRoles);
 
   return (
     <Section id={id} title="Experience">
-      <CompanyList groups={recent} />
+      <RoleList roles={recent} />
       {earlier.length > 0 ? (
         <div className="mt-8 border-t border-line pt-8">
           <Disclosure
-            summary={`Earlier experience (${earlierRoleCount} roles)`}
+            summary={`Earlier experience (${countLabel(earlier.length, "role")})`}
           >
-            <CompanyList groups={earlier} />
+            <RoleList roles={earlier} />
           </Disclosure>
         </div>
       ) : null}

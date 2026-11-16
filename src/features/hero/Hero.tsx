@@ -1,8 +1,7 @@
-import type { Person, Rating } from "@/content";
-import { ButtonLink } from "@/shared/ui/ButtonLink";
+import type { ExternalProfile, Person, Rating } from "@/content";
 import { Container } from "@/shared/ui/Container";
-import { MailIcon } from "@/shared/ui/icons";
 import { TagList } from "@/shared/ui/TagList";
+import { HeroActions } from "./HeroActions";
 import { Portrait } from "./Portrait";
 import { StatusFacts } from "./StatusFacts";
 
@@ -10,16 +9,18 @@ interface HeroProps {
   person: Person;
   rating: Rating;
   featuredStack: readonly string[];
-  email: string;
+  primaryEmail: string;
   projectsHref: string;
+  profiles: readonly ExternalProfile[];
 }
 
 export function Hero({
   person,
   rating,
   featuredStack,
-  email,
+  primaryEmail,
   projectsHref,
+  profiles,
 }: HeroProps) {
   return (
     <section
@@ -43,15 +44,11 @@ export function Hero({
           </p>
           <StatusFacts person={person} rating={rating} />
           <TagList items={featuredStack} label="Core stack" className="mt-6" />
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={`mailto:${email}`}>
-              <MailIcon className="size-4" />
-              Email me
-            </ButtonLink>
-            <ButtonLink href={projectsHref} variant="secondary">
-              View projects
-            </ButtonLink>
-          </div>
+          <HeroActions
+            email={primaryEmail}
+            projectsHref={projectsHref}
+            profiles={profiles}
+          />
         </div>
       </Container>
     </section>

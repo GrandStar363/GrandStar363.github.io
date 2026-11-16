@@ -50,3 +50,9 @@ export const CloseIcon = (props: IconProps) => (
     <path d="M6 6l12 12M18 6 6 18" />
   </Icon>
 );
+
+export const ArrowUpRightIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M7 17 17 7M8 7h9v9" />
+  </Icon>
+);

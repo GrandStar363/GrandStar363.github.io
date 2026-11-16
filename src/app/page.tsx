@@ -16,15 +16,16 @@ export default function HomePage() {
         person={person}
         rating={rating}
         featuredStack={siteConfig.featuredStack}
-        email={siteConfig.email}
+        primaryEmail={siteConfig.emails[0]}
         projectsHref="#projects"
+        profiles={siteConfig.profiles}
       />
-      <Experience id="experience" roles={profile.experience} />
       <ProjectsGrid
         id="projects"
         projects={profile.projects}
         hrefFor={routes.project}
       />
+      <Experience id="experience" roles={profile.experience} />
       <Skills
         id="skills"
         skills={profile.skills}
@@ -44,7 +45,8 @@ export default function HomePage() {
       />
       <Contact
         id="contact"
-        email={siteConfig.email}
+        emails={siteConfig.emails}
+        profiles={siteConfig.profiles}
         available={person.available}
       />
     </main>

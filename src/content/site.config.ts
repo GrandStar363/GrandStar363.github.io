@@ -11,7 +11,14 @@ const siteUrl = process.env.SITE_URL || process.env.URL || DEFAULT_SITE_URL;
 
 export const siteConfig = siteConfigSchema.parse({
   url: siteUrl,
-  email: "GrandStar363@proton.me",
+  emails: [
+    "GrandStar363@proton.me",
+    "Maksim.Hrusheuski@outlook.com",
+    "dike950121@gmail.com",
+  ],
+  profiles: [
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/mhrusheuski/" },
+  ],
   featuredStack: [
     "React",
     "TypeScript",
@@ -22,8 +29,8 @@ export const siteConfig = siteConfigSchema.parse({
     "Flutter",
   ],
   nav: [
-    { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
     { id: "skills", label: "Skills" },
     { id: "reviews", label: "Reviews" },
     { id: "contact", label: "Contact" },

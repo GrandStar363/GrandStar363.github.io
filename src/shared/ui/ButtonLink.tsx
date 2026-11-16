@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 import { cn } from "@/shared/lib/cn";
+import { ExternalLink } from "./ExternalLink";
 
 export type ButtonVariant = "primary" | "secondary";
 
 interface ButtonLinkProps {
   href: string;
   variant?: ButtonVariant;
+  /** Open in a new tab (for other sites). */
+  external?: boolean;
   children: ReactNode;
   className?: string;
 }
@@ -19,15 +22,24 @@ const variants: Record<ButtonVariant, string> = {
     "border border-line bg-white text-ink hover:border-sky-200 hover:bg-sky-50",
 };
 
-/** A link styled as a button, for anchors and mailto: targets. */
+/** A link styled as a button, for anchors, mailto: targets and other sites. */
 export function ButtonLink({
   href,
   variant = "primary",
+  external = false,
   children,
   className,
 }: ButtonLinkProps) {
+  const classes = cn(base, variants[variant], className);
+  if (external) {
+    return (
+      <ExternalLink href={href} className={classes}>
+        {children}
+      </ExternalLink>
+    );
+  }
   return (
-    <a href={href} className={cn(base, variants[variant], className)}>
+    <a href={href} className={classes}>
       {children}
     </a>
   );

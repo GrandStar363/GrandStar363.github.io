@@ -27,7 +27,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader name={person.name} items={siteConfig.nav} />
         <div className="flex-1">{children}</div>
-        <SiteFooter name={person.name} year={BUILD_YEAR} />
+        <SiteFooter
+          name={person.name}
+          year={BUILD_YEAR}
+          profiles={siteConfig.profiles}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

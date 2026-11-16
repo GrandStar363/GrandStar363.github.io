@@ -107,9 +107,16 @@ export const profileSchema = z.object({
 
 export const navItemSchema = z.object({ id: slug, label: text });
 
+export const externalProfileSchema = z.object({
+  label: text,
+  url: z.url({ protocol: /^https$/ }),
+});
+
 export const siteConfigSchema = z.object({
   url: z.url(),
-  email: z.email(),
+  /** Contact addresses; the first one is primary ("Email me" buttons, structured data). */
+  emails: z.tuple([z.email()], z.email()),
+  profiles: z.array(externalProfileSchema),
   featuredStack: z.array(text).min(1),
   nav: z.array(navItemSchema).min(1),
 });
@@ -128,4 +135,5 @@ export type Degree = z.infer<typeof degreeSchema>;
 export type Certification = z.infer<typeof certificationSchema>;
 export type Profile = z.infer<typeof profileSchema>;
 export type NavItem = z.infer<typeof navItemSchema>;
+export type ExternalProfile = z.infer<typeof externalProfileSchema>;
 export type SiteConfig = z.infer<typeof siteConfigSchema>;
