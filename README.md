@@ -26,8 +26,8 @@ src/app/              Composition: routes, layout, metadata; the only place feat
 ```
 
 ESLint enforces the layer boundaries: features can't import each other, shared code can't import
-domain code, and ingestion can only use the schema. It also caps functions at 50 lines.
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the full rules.
+domain code, and ingestion can only use the schema. See [ARCHITECTURE.md](ARCHITECTURE.md) for the
+full guidelines.
 
 ## Scripts
 

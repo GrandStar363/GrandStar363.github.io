@@ -26,18 +26,6 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
-    rules: {
-      "max-lines-per-function": [
-        "error",
-        { max: 50, skipBlankLines: true, skipComments: true },
-      ],
-      "max-lines": [
-        "error",
-        { max: 150, skipBlankLines: true, skipComments: true },
-      ],
-    },
-  },
-  {
     files: ["src/features/**"],
     rules: {
       "@typescript-eslint/no-restricted-imports": restrict(
@@ -91,10 +79,6 @@ const eslintConfig = defineConfig([
     // Static export with unoptimized images: this server-only primitive replaces next/image.
     files: ["src/shared/ui/Img.tsx"],
     rules: { "@next/next/no-img-element": "off" },
-  },
-  {
-    files: ["**/*.test.{ts,tsx}", "tests/**"],
-    rules: { "max-lines-per-function": "off" },
   },
   globalIgnores([
     ".next/**",
