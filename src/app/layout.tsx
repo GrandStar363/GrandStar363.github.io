@@ -21,10 +21,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       // The intro script may mark <html> as "intro seen" before React hydrates.
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: INTRO_SEEN_SCRIPT }} />
-      </head>
       <body className="flex min-h-dvh flex-col">
+        {/* Runs before the loader is parsed. Kept out of <head>: hosts such as Netlify inject
+            comments there, and a non-metadata element in <head> then fails hydration. */}
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SEEN_SCRIPT }} />
         <IntroLoader
           name={person.name}
           location={person.location}

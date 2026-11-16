@@ -25,6 +25,35 @@ fresh.describe("intro loader", () => {
   });
 });
 
+test("survives comments injected into <head> by the host", async ({ page }) => {
+  // Netlify inserts an HTML comment after <meta charset>; hydration must still succeed.
+  await page.route(
+    (url) => url.pathname === "/",
+    async (route) => {
+      const response = await route.fetch();
+      const html = (await response.text()).replace(
+        '<meta charSet="utf-8"/>',
+        '<meta charSet="utf-8"/>\n<!-- injected by host -->',
+      );
+      await route.fulfill({ response, body: html });
+    },
+  );
+  const errors: string[] = [];
+  page.on(
+    "console",
+    (message) => message.type() === "error" && errors.push(message.text()),
+  );
+  await page.goto("/", { waitUntil: "networkidle" });
+  // If hydration failed, React rebuilds <head> and the host's comment disappears.
+  expect(
+    await page.evaluate(() => document.head.innerHTML),
+    "<head> was not re-rendered",
+  ).toContain("injected by host");
+  await expect(page.locator("html")).toHaveAttribute("data-intro-seen", "");
+  await expect(page.locator("[data-intro-loader]")).toBeHidden();
+  expect(errors).toEqual([]);
+});
+
 test.describe("work backdrop", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
