@@ -1,6 +1,6 @@
 import { profileSchema, type Profile } from "@/content/schema";
 import { mapEducation } from "./map-education";
-import { mapExperience } from "./map-experience";
+import { mapExperience, type RoleEndOverrides } from "./map-experience";
 import {
   mapLanguages,
   mapPerson,
@@ -18,6 +18,7 @@ export interface ProfileSources {
   projects: readonly RawProject[];
   videos: ReadonlyMap<number, VideoSource>;
   testimonials: readonly RawTestimonial[];
+  roleEndOverrides?: RoleEndOverrides;
   now: Date;
 }
 
@@ -33,7 +34,7 @@ export function buildProfile(sources: ProfileSources): Profile {
     languages: mapLanguages(user),
     skills: mapSkills(user),
     sectors: mapSectors(user),
-    experience: mapExperience(user.workexperience),
+    experience: mapExperience(user.workexperience, sources.roleEndOverrides),
     projects,
     testimonials: mapTestimonials(sources.testimonials, projects),
     ...mapEducation(user.education),

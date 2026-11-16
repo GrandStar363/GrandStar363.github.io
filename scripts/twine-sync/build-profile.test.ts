@@ -57,6 +57,22 @@ describe("buildProfile", () => {
     ]);
   });
 
+  it("applies hand-authored role end dates on top of Twine data", () => {
+    const corrected = buildProfile({
+      user,
+      projects,
+      videos,
+      testimonials: [],
+      roleEndOverrides: { "3786523": "2026-10" },
+      now: new Date("2026-11-16"),
+    });
+    expect(corrected.experience.map((role) => role.end)).toEqual([
+      "2026-06",
+      "2026-10",
+      "2021-09",
+    ]);
+  });
+
   it("splits degrees from certifications and links testimonials to projects", () => {
     expect(profile.degrees).toHaveLength(2);
     expect(profile.certifications).toEqual([

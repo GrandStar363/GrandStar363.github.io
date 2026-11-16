@@ -9,6 +9,7 @@ import {
 } from "./config";
 import { orderedProjects } from "./map-projects";
 import { planMedia, writeMedia } from "./media";
+import { ROLE_END_OVERRIDES } from "./overrides";
 import {
   fetchProfileState,
   fetchTestimonials,
@@ -50,6 +51,7 @@ async function main(): Promise<void> {
     projects,
     videos,
     testimonials,
+    roleEndOverrides: ROLE_END_OVERRIDES,
     now: new Date(),
   });
   const jobs = planMedia(user, projects, videos);
