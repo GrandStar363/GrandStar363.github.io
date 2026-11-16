@@ -1,7 +1,12 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Project } from "@/content";
+import { AiChatScene } from "./AiChatScene";
+import { ArScene } from "./ArScene";
 import styles from "./backdrop.module.css";
+import { BookingScene } from "./BookingScene";
 import { CityScene } from "./CityScene";
+import { CommerceScene } from "./CommerceScene";
+import { DeliveryScene } from "./DeliveryScene";
 import { GisScene } from "./GisScene";
 import { MobileScene } from "./MobileScene";
 import { PlatformScene } from "./PlatformScene";
@@ -10,14 +15,22 @@ import { SceneCaption } from "./SceneCaption";
 import { SceneCycle } from "./SceneCycle";
 import { SCENES, type SceneId } from "./scenes";
 
-const ARTWORK: Record<SceneId, () => ReactNode> = {
+const ARTWORK: Record<
+  SceneId,
+  (props: { tags: readonly string[] }) => ReactNode
+> = {
   city: CityScene,
   gis: GisScene,
   mobile: MobileScene,
+  booking: BookingScene,
+  ar: ArScene,
+  delivery: DeliveryScene,
+  ai: AiChatScene,
+  commerce: CommerceScene,
   platform: PlatformScene,
 };
 
-const SCENE_MS = 5000;
+const SCENE_MS = 3500;
 
 interface WorkBackdropProps {
   projects: readonly Project[];
@@ -36,8 +49,12 @@ export function WorkBackdrop({
   captionPath,
 }: WorkBackdropProps) {
   const scenes = resolveScenes(SCENES, projects, sectors);
+  const topics = scenes.map((scene) => scene.topic);
   return (
-    <div aria-hidden="true">
+    <div
+      aria-hidden="true"
+      style={{ "--scene-ms": `${SCENE_MS}ms` } as CSSProperties}
+    >
       <SceneCycle
         intervalMs={SCENE_MS}
         captionPath={captionPath}
@@ -53,13 +70,13 @@ export function WorkBackdrop({
               className={styles.scene}
             >
               <svg
-                viewBox="0 0 600 470"
+                viewBox="-60 0 660 470"
                 preserveAspectRatio="xMidYMid meet"
                 className={styles.art}
               >
-                <Artwork />
+                <Artwork tags={scene.stack} />
               </svg>
-              <SceneCaption scene={scene} index={index} total={scenes.length} />
+              <SceneCaption scene={scene} index={index} topics={topics} />
             </div>
           );
         })}

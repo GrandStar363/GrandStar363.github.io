@@ -1,4 +1,6 @@
 import { art, stagger } from "./art";
+import type { CalloutSpec } from "./callout-geometry";
+import { Callouts } from "./Callouts";
 import { circlePath, roundedRectPath } from "./geometry";
 
 const ROWS = [0, 1, 2, 3, 4];
@@ -102,7 +104,13 @@ function Notification() {
   );
 }
 
-export function MobileScene() {
+const CALLOUTS: readonly CalloutSpec[] = [
+  { tag: "React Native", from: [470, 200], to: [502, 150] },
+  { tag: "Ecommerce", from: [452, 300], to: [502, 336] },
+  { tag: "Mobile App", from: [290, 330], to: [250, 420], align: "end" },
+];
+
+export function MobileScene({ tags }: { tags: readonly string[] }) {
   return (
     <>
       <Phone x={140} y={70} index={0} />
@@ -110,6 +118,7 @@ export function MobileScene() {
       <ListScreen />
       <DashboardScreen />
       <Notification />
+      <Callouts specs={CALLOUTS} tags={tags} start={14} />
     </>
   );
 }

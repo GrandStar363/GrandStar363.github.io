@@ -1,4 +1,6 @@
 import { art, stagger } from "./art";
+import type { CalloutSpec } from "./callout-geometry";
+import { Callouts } from "./Callouts";
 import { buildingShape, type Block } from "./building";
 import { isoPoint, linePath, type Point } from "./geometry";
 
@@ -100,7 +102,13 @@ function Crane({ block }: { block: Block }) {
   );
 }
 
-export function CityScene() {
+const CALLOUTS: readonly CalloutSpec[] = [
+  { tag: "Three.js", from: [300, 164], to: [372, 112] },
+  { tag: "WebGL", from: [482, 235], to: [518, 200] },
+  { tag: "React", from: [438, 400], to: [478, 432] },
+];
+
+export function CityScene({ tags }: { tags: readonly string[] }) {
   const tallest = BLOCKS.at(-1);
   return (
     <>
@@ -109,6 +117,7 @@ export function CityScene() {
         <Building key={`${block.x}-${block.y}`} block={block} />
       ))}
       {tallest ? <Crane block={tallest} /> : null}
+      <Callouts specs={CALLOUTS} tags={tags} start={14} />
     </>
   );
 }

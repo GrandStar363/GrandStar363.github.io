@@ -1,4 +1,6 @@
 import { art, stagger } from "./art";
+import type { CalloutSpec } from "./callout-geometry";
+import { Callouts } from "./Callouts";
 import { linePath, polygonPath, type Point } from "./geometry";
 
 const ROADS = [
@@ -105,7 +107,13 @@ function Legend() {
   );
 }
 
-export function GisScene() {
+const CALLOUTS: readonly CalloutSpec[] = [
+  { tag: "Mapbox", from: [520, 150], to: [530, 96] },
+  { tag: "PostGIS", from: [458, 334], to: [512, 380] },
+  { tag: "Django", from: [390, 298], to: [416, 410] },
+];
+
+export function GisScene({ tags }: { tags: readonly string[] }) {
   return (
     <>
       {CONTOUR_SCALES.map((scale, i) => (
@@ -144,6 +152,7 @@ export function GisScene() {
         <Pin key={point.join()} at={point} index={i} />
       ))}
       <Legend />
+      <Callouts specs={CALLOUTS} tags={tags} start={14} />
     </>
   );
 }

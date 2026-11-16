@@ -22,6 +22,7 @@ describe("resolveScenes", () => {
       [
         {
           id: "gis",
+          topic: "GIS",
           label: "GIS",
           projectSlug: "maps",
           stack: ["Mapbox", "Leaflet", "react"],
@@ -33,6 +34,7 @@ describe("resolveScenes", () => {
     );
     expect(scene).toEqual({
       id: "gis",
+      topic: "GIS",
       label: "GIS",
       project: "Map Portal",
       stack: ["Mapbox", "react"],
@@ -45,6 +47,7 @@ describe("resolveScenes", () => {
       [
         {
           id: "city",
+          topic: "3D",
           label: "3D",
           projectSlug: "missing",
           stack: [],

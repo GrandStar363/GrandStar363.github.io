@@ -3,6 +3,7 @@ import type { SceneDefinition, SceneId } from "./scenes";
 
 export interface ResolvedScene {
   id: SceneId;
+  topic: string;
   label: string;
   project: string;
   stack: string[];
@@ -30,6 +31,7 @@ export function resolveScenes(
     return [
       {
         id: definition.id,
+        topic: definition.topic,
         label: definition.label,
         project: project.title,
         stack: definition.stack.filter((tag) => tags.has(lower(tag))),

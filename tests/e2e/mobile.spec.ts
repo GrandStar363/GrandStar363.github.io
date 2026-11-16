@@ -18,7 +18,7 @@ test("shows the background artwork faintly, without captions", async ({
 }) => {
   await page.goto("/");
   await expect(page.locator("[data-scene][data-active]")).toHaveCount(1);
-  await expect(page.getByText("01 / 04")).toBeHidden();
+  await expect(page.getByText("01 / 09")).toBeHidden();
 });
 
 test("menu opens, navigates, and closes", async ({ page }) => {

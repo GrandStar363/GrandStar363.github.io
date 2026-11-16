@@ -1,4 +1,6 @@
 import { art, stagger } from "./art";
+import type { CalloutSpec } from "./callout-geometry";
+import { Callouts } from "./Callouts";
 import { circlePath, linePath, type Point } from "./geometry";
 
 interface ServiceNode {
@@ -67,7 +69,13 @@ function Link({ node, index }: { node: ServiceNode; index: number }) {
   );
 }
 
-export function PlatformScene() {
+const CALLOUTS: readonly CalloutSpec[] = [
+  { tag: "Node.js", from: [330, 235], to: [420, 228] },
+  { tag: "MongoDB", from: [494, 152], to: [518, 192] },
+  { tag: "Next.js", from: [130, 150], to: [168, 200] },
+];
+
+export function PlatformScene({ tags }: { tags: readonly string[] }) {
   return (
     <>
       <path
@@ -87,6 +95,7 @@ export function PlatformScene() {
       {NODES.map((node, i) => (
         <Node key={node.label} node={node} index={1 + i} />
       ))}
+      <Callouts specs={CALLOUTS} tags={tags} start={10} />
     </>
   );
 }

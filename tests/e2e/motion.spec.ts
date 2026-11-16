@@ -5,7 +5,8 @@ fresh.describe("intro loader", () => {
   fresh(
     "counts to 100% and then lifts away, once per session",
     async ({ page }) => {
-      await page.goto("/");
+      // Start checking as soon as navigation commits: the intro is short and must be caught early.
+      await page.goto("/", { waitUntil: "commit" });
       const loader = page.locator("[data-intro-loader]");
       await expect(loader).toBeVisible();
       await expect(loader).toContainText("100", { timeout: 5_000 });
@@ -61,10 +62,10 @@ test.describe("work backdrop", () => {
     await page.clock.install();
     await page.goto("/");
     const scenes = page.locator("[data-scene]");
-    await expect(scenes).toHaveCount(4);
+    await expect(scenes).toHaveCount(9);
     await expect(scenes.nth(0)).toHaveAttribute("data-active", "");
     await expect(scenes.nth(0)).toContainText("3D Modular House Configurator");
-    await page.clock.fastForward(8_000);
+    await page.clock.fastForward(4_000);
     await expect(scenes.nth(1)).toHaveAttribute("data-active", "");
     await expect(scenes.nth(0)).not.toHaveAttribute("data-active", "");
   });
@@ -75,14 +76,16 @@ test.describe("work backdrop", () => {
     await page.goto("/");
     const layer = page.locator("[data-captions]");
     await expect(layer).toHaveCount(1);
-    await expect(page.getByText("01 / 04 · 3D configurators")).toBeVisible();
+    await expect(
+      page.getByText("3D configurators", { exact: true }),
+    ).toBeVisible();
     await layer.evaluate((element) => Object.assign(element, { keep: true }));
 
     await page.locator("#projects").getByRole("link").first().click();
     await expect(page).toHaveURL(/\/projects\//);
     await expect(page.locator("[data-captions]")).toHaveCount(0);
     const scenes = page.locator("[data-scene]");
-    await expect(scenes).toHaveCount(4);
+    await expect(scenes).toHaveCount(9);
     expect(
       await scenes
         .first()
