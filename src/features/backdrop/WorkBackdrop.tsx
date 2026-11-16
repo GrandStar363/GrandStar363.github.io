@@ -17,38 +17,53 @@ const ARTWORK: Record<SceneId, () => ReactNode> = {
   platform: PlatformScene,
 };
 
-const SCENE_MS = 7500;
+const SCENE_MS = 5000;
 
 interface WorkBackdropProps {
   projects: readonly Project[];
   sectors: readonly string[];
+  /** Route whose first screen shows the scene captions (project, stack, industry). */
+  captionPath: string;
 }
 
-/** Line-art scenes of real portfolio work that take turns behind the hero. Decorative only. */
-export function WorkBackdrop({ projects, sectors }: WorkBackdropProps) {
+/**
+ * Line-art scenes of real portfolio work that take turns in a fixed layer behind the whole site.
+ * Mounted in the root layout, so it keeps running across scrolling and page navigation.
+ */
+export function WorkBackdrop({
+  projects,
+  sectors,
+  captionPath,
+}: WorkBackdropProps) {
   const scenes = resolveScenes(SCENES, projects, sectors);
   return (
-    <SceneCycle intervalMs={SCENE_MS} className={styles.root}>
-      {scenes.map((scene, index) => {
-        const Artwork = ARTWORK[scene.id];
-        return (
-          <div
-            key={scene.id}
-            data-scene=""
-            data-active={index === 0 ? "" : undefined}
-            className={styles.scene}
-          >
-            <svg
-              viewBox="0 0 600 470"
-              preserveAspectRatio="xMidYMid meet"
-              className={styles.art}
+    <div aria-hidden="true">
+      <SceneCycle
+        intervalMs={SCENE_MS}
+        captionPath={captionPath}
+        className={styles.root}
+      >
+        {scenes.map((scene, index) => {
+          const Artwork = ARTWORK[scene.id];
+          return (
+            <div
+              key={scene.id}
+              data-scene=""
+              data-active={index === 0 ? "" : undefined}
+              className={styles.scene}
             >
-              <Artwork />
-            </svg>
-            <SceneCaption scene={scene} index={index} total={scenes.length} />
-          </div>
-        );
-      })}
-    </SceneCycle>
+              <svg
+                viewBox="0 0 600 470"
+                preserveAspectRatio="xMidYMid meet"
+                className={styles.art}
+              >
+                <Artwork />
+              </svg>
+              <SceneCaption scene={scene} index={index} total={scenes.length} />
+            </div>
+          );
+        })}
+      </SceneCycle>
+    </div>
   );
 }

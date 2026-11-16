@@ -1,29 +1,57 @@
-/* Decorative line-art scenes behind the hero. Every element's resting state is the finished
-   drawing; animations only run while its scene is active, so fading out never "undraws". */
+/* Decorative line-art scenes fixed behind the whole site. Every element's resting state is the
+   finished drawing; animations only run while its scene is active, so fading out never "undraws". */
 
 .root {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: -1;
   pointer-events: none;
   color: var(--color-sky-600);
+  /* Vivid on the first screen, calmer behind reading content; fainter on narrow screens. */
+  --top-opacity: 0.45;
+  --rest-opacity: 0.28;
+  opacity: var(--top-opacity);
+}
+
+@media (min-width: 64rem) {
+  .root {
+    --top-opacity: 0.85;
+    --rest-opacity: 0.4;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .root {
+    animation: settle linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 70vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    opacity: var(--rest-opacity);
+  }
 }
 
 .scene {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.4s var(--ease-soft);
+  transition: opacity 1.2s var(--ease-soft);
 }
 
 .scene[data-active] {
   opacity: 1;
 }
 
+/* Below the 4rem sticky header; on wide screens the right ~70%, beside the hero text. */
 .art {
   position: absolute;
-  inset: 0 0 4.5rem;
+  top: 4rem;
+  right: 0;
   width: 100%;
-  height: calc(100% - 4.5rem);
+  height: calc(100% - 4rem);
   mask-image: radial-gradient(
     ellipse 62% 64% at 50% 52%,
     #000 52%,
@@ -64,16 +92,26 @@
 
 .label {
   fill: currentColor;
-  fill-opacity: 0.6;
+  fill-opacity: 0.45;
   font:
-    500 10px/1 ui-monospace,
+    500 8px/1 ui-monospace,
     SFMono-Regular,
     Menlo,
     monospace;
   letter-spacing: 0.08em;
 }
 
-.caption {
+@media (min-width: 64rem) {
+  .art {
+    width: 72%;
+  }
+}
+
+/* Captions show only where the composition layer asks for them (data-captions) and fade out as the
+   page scrolls, so they never sit behind body text. Without scroll-driven animations (or with
+   reduced motion) they stay hidden. */
+.captionDock {
+  display: none;
   position: absolute;
   right: max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem));
   bottom: 1.75rem;
@@ -81,20 +119,31 @@
   text-align: right;
 }
 
+@supports (animation-timeline: scroll()) {
+  @media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+    .root[data-captions] .captionDock {
+      display: block;
+      animation: dock-fade linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 35vh;
+    }
+  }
+}
+
 .scene[data-active] .caption {
-  animation: rise 0.9s var(--ease-soft) 0.4s both;
+  animation: rise 0.9s var(--ease-soft) 0.3s both;
 }
 
 /* Entrance effects, staggered by --i. */
 .scene[data-active] .draw {
   stroke-dasharray: 1;
-  animation: draw 2.6s var(--ease-soft) both;
-  animation-delay: calc(var(--i, 0) * 110ms);
+  animation: draw 2.2s var(--ease-soft) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
 }
 
 .scene[data-active] .rise {
   animation: rise 0.9s var(--ease-soft) both;
-  animation-delay: calc(var(--i, 0) * 120ms);
+  animation-delay: calc(var(--i, 0) * 100ms);
 }
 
 .scene[data-active] .pop {
@@ -140,6 +189,21 @@
 
 .root[data-paused] * {
   animation-play-state: paused !important;
+}
+
+@keyframes settle {
+  from {
+    opacity: var(--top-opacity);
+  }
+  to {
+    opacity: var(--rest-opacity);
+  }
+}
+
+@keyframes dock-fade {
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes draw {

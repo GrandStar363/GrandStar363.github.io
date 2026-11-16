@@ -69,6 +69,28 @@ test.describe("work backdrop", () => {
     await expect(scenes.nth(0)).not.toHaveAttribute("data-active", "");
   });
 
+  test("keeps running across page navigation, with captions on home only", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const layer = page.locator("[data-captions]");
+    await expect(layer).toHaveCount(1);
+    await expect(page.getByText("01 / 04 · 3D configurators")).toBeVisible();
+    await layer.evaluate((element) => Object.assign(element, { keep: true }));
+
+    await page.locator("#projects").getByRole("link").first().click();
+    await expect(page).toHaveURL(/\/projects\//);
+    await expect(page.locator("[data-captions]")).toHaveCount(0);
+    const scenes = page.locator("[data-scene]");
+    await expect(scenes).toHaveCount(4);
+    expect(
+      await scenes
+        .first()
+        .evaluate((scene) => "keep" in (scene.parentElement ?? {})),
+      "background layer was not remounted",
+    ).toBe(true);
+  });
+
   test("holds the first scene still for reduced motion", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.clock.install();

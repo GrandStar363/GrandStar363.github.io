@@ -13,9 +13,12 @@ test("has no horizontal overflow", async ({ page }) => {
   }
 });
 
-test("hides the decorative backdrop on small screens", async ({ page }) => {
+test("shows the background artwork faintly, without captions", async ({
+  page,
+}) => {
   await page.goto("/");
-  await expect(page.locator("[data-scene]").first()).toBeHidden();
+  await expect(page.locator("[data-scene][data-active]")).toHaveCount(1);
+  await expect(page.getByText("01 / 04")).toBeHidden();
 });
 
 test("menu opens, navigates, and closes", async ({ page }) => {

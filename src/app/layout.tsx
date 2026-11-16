@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { profile, siteConfig } from "@/content";
+import { WorkBackdrop } from "@/features/backdrop";
 import { INTRO_SEEN_SCRIPT, IntroLoader } from "@/features/loader";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
 import { cn } from "@/shared/lib/cn";
+import { routes } from "@/shared/lib/routes";
 import { inter, newsreader } from "./fonts";
 import { personJsonLd, siteMetadata } from "./seo";
 import "./globals.css";
@@ -36,6 +38,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <WorkBackdrop
+          projects={profile.projects}
+          sectors={profile.sectors}
+          captionPath={routes.home}
+        />
         <SiteHeader name={person.name} items={siteConfig.nav} />
         <div className="flex-1">{children}</div>
         <SiteFooter
