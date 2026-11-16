@@ -1,0 +1,6 @@
+.next
+out
+node_modules
+src/content/profile.json
+playwright-report
+test-results
