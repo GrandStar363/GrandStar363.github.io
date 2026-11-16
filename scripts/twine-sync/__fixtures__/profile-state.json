@@ -1,0 +1,192 @@
+{
+  "entities": {
+    "users": {
+      "1831470": {
+        "displayname": "Maksim Hrusheuski",
+        "bio": "I’m a full-stack software engineer based in Wrocław with 8+ years of experience building and delivering web and cross-platform mobile products—from requirements and API design to production and ongoing support. I work across React/TypeScript, Node.js/NestJS, GraphQL, and mobile stacks like React Native and Flutter, with a strong focus on performance, reusable UI systems, accessibility, and spec-driven delivery.",
+        "verified": true,
+        "available_at": "2026-10-29T10:31:14+00:00",
+        "featured_roles": [
+          "Software Engineer",
+          "Full Stack Developer",
+          "Back-End Developer",
+          "Front-End Developer",
+          "Programmer"
+        ],
+        "location": {
+          "text": "Wroclaw, Poland",
+          "city": "Wroclaw",
+          "city_slug": "wroclaw",
+          "country": "Poland",
+          "country_slug": "poland",
+          "country_code": "pl"
+        },
+        "rating": {
+          "avg": 5,
+          "count": 5
+        },
+        "skills": [
+          {
+            "name": "TypeScript",
+            "experience": 92
+          },
+          {
+            "name": "React JS",
+            "experience": 92
+          },
+          {
+            "name": "JavaScript",
+            "experience": 90
+          }
+        ],
+        "language": [
+          {
+            "language": "English",
+            "experience": 100
+          },
+          {
+            "language": "Russian",
+            "experience": 95
+          },
+          {
+            "language": "Belarusian",
+            "experience": 85
+          }
+        ],
+        "sectors": [
+          {
+            "name": "Healthcare"
+          },
+          {
+            "name": "Software & Internet"
+          }
+        ],
+        "workexperience": [
+          {
+            "id": 3786523,
+            "company_name": "Coherent Solutions",
+            "job_title": "Group Manager (parallel responsibility)",
+            "start_date": "2025-08-01",
+            "end_date": "",
+            "description": "Managed engineering delivery and team growth while continuing hands-on development. Onboarded engineers, removed access/process blockers, ran 1:1s, supported career development, prepared engineers for engineering-level assessments, and collaborated closely with product and leadership."
+          },
+          {
+            "id": 3786526,
+            "company_name": "Coherent Solutions",
+            "job_title": "AI-Native Full-stack Engineer",
+            "start_date": "2026-03-01",
+            "end_date": "2026-06-01",
+            "description": "Established repeatable AI-native engineering workflows using Claude Code, reusable agent skills/sub-agents, and specification-driven development. Structured delivery around requirements, code generation, automated tests, documentation, and review for a NestJS/PostgreSQL/React codebase."
+          },
+          {
+            "id": 3786530,
+            "company_name": "ISsoft",
+            "job_title": "Frontend Developer",
+            "start_date": "2018-06-01",
+            "end_date": "2021-09-01",
+            "description": "Built React/Redux web and hybrid mobile UI for healthcare products, including Cordova applications for iOS and Android. Supported 15+ mobile apps through a shared white-label codebase, created reusable React/JSS components in Storybook, and implemented localization and WCAG accessibility improvements. Delivered tracker and to-do feature areas across multiple assignments."
+          }
+        ],
+        "education": [
+          {
+            "qualification": "Bachelor of Engineering (BE)",
+            "organization": "Belarusian State University of Informatics and Radioelectronics (BSUIR)",
+            "started_at": "2017-09-01 00:00:00",
+            "ended_at": "2021-01-01 00:00:00"
+          },
+          {
+            "qualification": "Associate’s Degree",
+            "organization": "Minsk Radioengineering College (BSUIR Affiliate)",
+            "started_at": "2013-09-01 00:00:00",
+            "ended_at": "2017-06-01 00:00:00"
+          },
+          {
+            "qualification": "AI Fluency: Framework & Foundations",
+            "organization": "",
+            "started_at": "-0001-11-30 00:00:00",
+            "ended_at": "2026-10-29 00:00:00"
+          }
+        ],
+        "avatars": {
+          "images": {
+            "380": {
+              "size": 380,
+              "width": 380,
+              "height": 380,
+              "square": {
+                "main": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/avatar/ad482951-06cb-4e7f-85d6-d3f4733052fb/380x380.jpg"
+              }
+            }
+          }
+        }
+      }
+    },
+    "projects": {
+      "2445688": {
+        "id": 2445688,
+        "title": "AerialGIS Real Estate GIS Portal | React, Django, PostGIS, Mapbox",
+        "description": "GIS Product Developer, Designer and Engineer\r\n\r\nClient need: a single platform to visualise property data on a map and manage that data behind the scenes.\r\n\r\nWhat I built: a WebGIS portal for property visualisation plus an admin panel for managing the underlying records, from ideation to launch.\r\n\r\nMy role: product development, design and engineering.\r\n\r\nTech: React, Mapbox, Django, PostgreSQL/PostGIS, cloud hosting.\r\n\r\nOutcome: rated 5.0 by the client, who said the work was delivered in good time and planned to keep working with us.\r\n\r\nDjango\r\nReact\r\nPostGIS\r\nGIS\r\nMapbox",
+        "mediaType": "image",
+        "links": {
+          "main": "https://www.twine.net/Maksim999/c21owc0/aerialgis-real-estate-gis-portal-react-django-postgis-mapbox"
+        },
+        "thumbnails": {
+          "images": {
+            "405": {
+              "size": 405,
+              "width": 720,
+              "height": 405,
+              "wide": {
+                "main": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445688/c34ca3e5-3ec8-4af1-83e8-1c8ad6ef2ad9/720x405.jpg",
+                "icon": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445688/c34ca3e5-3ec8-4af1-83e8-1c8ad6ef2ad9/icon/720x405.jpg"
+              },
+              "square": {
+                "main": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445688/c34ca3e5-3ec8-4af1-83e8-1c8ad6ef2ad9/405x405.jpg",
+                "icon": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445688/c34ca3e5-3ec8-4af1-83e8-1c8ad6ef2ad9/icon/405x405.jpg"
+              }
+            }
+          }
+        }
+      },
+      "2445682": {
+        "id": 2445682,
+        "title": "3D Modular House Configurator",
+        "description": "Developed an interactive 3D configurator for modular house exterior customization, allowing users to personalize and visualize different exterior options in real time. The system enables selection of facade materials, colors, roof styles, windows, doors, and additional architectural elements with instant 3D updates.\r\n\r\nTASK:\r\n- 3D visualization and real-time customization\r\n- Interactive user interface design\r\n- Configuration logic implementation\r\n- Responsive desktop and mobile experience\r\n- Performance optimization and integration with the website\r\n\r\nCustomers could explore and customize modular house\r\n\r\n\r\n\r\nThree.js\r\nReact\r\nAR & VR\r\nWebGL\r\nFigma",
+        "mediaType": "video",
+        "links": {
+          "main": "https://www.twine.net/Maksim999/c21ow60/3d-modular-house-configurator"
+        },
+        "thumbnails": {
+          "images": {
+            "405": {
+              "size": 405,
+              "width": 720,
+              "height": 405,
+              "wide": {
+                "main": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445682/80a38173-6ed3-40c8-857d-c9fb8cf83f66/720x405.jpg",
+                "icon": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445682/80a38173-6ed3-40c8-857d-c9fb8cf83f66/icon/720x405.jpg"
+              },
+              "square": {
+                "main": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445682/80a38173-6ed3-40c8-857d-c9fb8cf83f66/405x405.jpg",
+                "icon": "https://thumbs.twinecdn.com/1f29b5a8cd074d2888e904d2e88f1c5b/2445682/80a38173-6ed3-40c8-857d-c9fb8cf83f66/icon/405x405.jpg"
+              }
+            }
+          }
+        }
+      }
+    },
+    "credits": {
+      "1475267": {
+        "project_id": 2445688
+      },
+      "1475262": {
+        "project_id": 2445682
+      }
+    }
+  },
+  "portfolio": {
+    "Maksim999": {
+      "credits": [1475267, 1475262]
+    }
+  }
+}
