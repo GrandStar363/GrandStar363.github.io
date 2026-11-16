@@ -12,7 +12,7 @@ export function Education({ id, degrees, certifications }: EducationProps) {
   return (
     <Section id={id} title="Education">
       <div className="grid gap-12 md:grid-cols-2">
-        <ul className="space-y-6">
+        <ul className="reveal space-y-6">
           {degrees.map((degree) => (
             <li key={degree.qualification}>
               <h3 className="font-medium text-ink">{degree.qualification}</h3>
@@ -23,7 +23,7 @@ export function Education({ id, degrees, certifications }: EducationProps) {
             </li>
           ))}
         </ul>
-        <div>
+        <div className="reveal">
           <h3 className="text-sm font-semibold text-ink">Certifications</h3>
           <ul className="mt-3 divide-y divide-line border-y border-line text-sm text-ink-muted">
             {certifications.map((certification) => (

@@ -15,7 +15,7 @@ export function Reviews({ id, testimonials, rating, hrefFor }: ReviewsProps) {
     <Section id={id} title="Client reviews" intro={intro}>
       <ul className="grid gap-6 md:grid-cols-2">
         {testimonials.map((testimonial) => (
-          <li key={testimonial.id}>
+          <li key={testimonial.id} className="reveal">
             <ReviewCard
               testimonial={testimonial}
               projectHref={

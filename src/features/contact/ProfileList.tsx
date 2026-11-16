@@ -18,7 +18,7 @@ export function ProfileList({
           >
             <span className="inline-flex items-center gap-1.5 font-medium text-ink group-hover:text-sky-700">
               {profile.label}
-              <ArrowUpRightIcon className="size-4 text-ink-muted group-hover:text-sky-700" />
+              <ArrowUpRightIcon className="size-4 text-ink-muted transition-transform duration-300 ease-soft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky-700" />
             </span>
             <span className="text-sm text-ink-muted">
               {displayUrl(profile.url)}

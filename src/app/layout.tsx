@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { profile, siteConfig } from "@/content";
+import { CustomCursor } from "@/features/cursor";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
 import { cn } from "@/shared/lib/cn";
 import { inter, newsreader } from "./fonts";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           year={BUILD_YEAR}
           profiles={siteConfig.profiles}
         />
+        <CustomCursor />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

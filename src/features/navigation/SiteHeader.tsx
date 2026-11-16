@@ -24,11 +24,15 @@ export function SiteHeader({ name, items }: SiteHeaderProps) {
           <NavLinks
             items={items}
             className="flex items-center gap-7 text-sm"
-            linkClassName="text-ink-muted transition-colors hover:text-ink"
+            linkClassName="relative text-ink-muted transition-colors hover:text-ink after:absolute after:inset-x-0 after:-bottom-1.5 after:h-px after:origin-left after:scale-x-0 after:bg-sky-600 after:transition-transform after:duration-300 after:ease-soft hover:after:scale-x-100"
           />
         </nav>
         <MobileMenu items={items} />
       </Container>
+      <div
+        aria-hidden="true"
+        className="scroll-progress absolute inset-x-0 -bottom-px h-0.5 bg-sky-600/70"
+      />
     </header>
   );
 }

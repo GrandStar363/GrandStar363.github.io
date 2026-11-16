@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* Light-only "warm sky" palette. The default Tailwind palette is removed on purpose:
-   components may only use these tokens. */
-@theme {
+   components may only use these tokens. `static` emits every token, so CSS modules can use them. */
+@theme static {
   --color-*: initial;
   --color-transparent: transparent;
   --color-current: currentColor;
@@ -18,6 +18,8 @@
   --color-ink-muted: #56636f;
   --color-line: #e8e2d6;
   --color-sun: #e9a54b;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
@@ -59,7 +61,81 @@
     ::before,
     ::after {
       transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
+      animation: none !important;
+    }
+  }
+
+  /* Set by the custom cursor feature on mouse devices; the dot and ring replace the system cursor. */
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* Motion: small, CSS-first and progressive. Browsers without scroll-driven animations
+   simply show content statically; reduced-motion users get no animation at all. */
+@keyframes rise {
+  from {
+    opacity: 0.01;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@layer components {
+  /* Page-load entrance: direct children rise in one after another. */
+  .intro-stagger > *,
+  .intro {
+    animation: rise 0.7s var(--ease-soft) both;
+  }
+
+  .intro-stagger > :nth-child(2) {
+    animation-delay: 70ms;
+  }
+  .intro-stagger > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+  .intro-stagger > :nth-child(4) {
+    animation-delay: 210ms;
+  }
+  .intro-stagger > :nth-child(5) {
+    animation-delay: 280ms;
+  }
+  .intro-stagger > :nth-child(n + 6) {
+    animation-delay: 350ms;
+  }
+
+  /* Fade up while scrolling into view; driven by the scroll position, no JavaScript. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+
+  /* Reading progress line under the sticky header. */
+  .scroll-progress {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: grow-x linear both;
+      animation-timeline: scroll(root);
     }
   }
 }

@@ -5,7 +5,7 @@ export function RoleEntry({ role }: { role: Role }) {
   return (
     <li
       data-start={role.start}
-      className="grid gap-3 border-t border-line py-8 first:border-t-0 first:pt-0 md:grid-cols-[15rem_1fr] md:gap-10"
+      className="reveal grid gap-3 border-t border-line py-8 first:border-t-0 first:pt-0 md:grid-cols-[15rem_1fr] md:gap-10"
     >
       <div>
         <p className="text-sm text-ink-muted">

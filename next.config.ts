@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   turbopack: {
     rules: {
+      // Tailwind processes global stylesheets only; CSS modules keep Next's native handling.
       "*.css": {
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },

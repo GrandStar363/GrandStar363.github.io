@@ -11,7 +11,9 @@ export function collectErrors(page: Page): string[] {
   return errors;
 }
 
+/** Audits the settled page: motion is reduced so no element is caught mid-fade. */
 export async function seriousViolations(page: Page): Promise<string[]> {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const { violations } = await new AxeBuilder({ page }).analyze();
   return violations
     .filter(

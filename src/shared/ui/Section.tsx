@@ -17,7 +17,7 @@ export function Section({ id, title, intro, children }: SectionProps) {
       className="border-t border-line py-16 sm:py-24"
     >
       <Container>
-        <header className="mb-10 max-w-2xl">
+        <header className="reveal mb-10 max-w-2xl">
           <h2
             id={titleId}
             className="font-serif text-3xl tracking-tight text-ink sm:text-4xl"

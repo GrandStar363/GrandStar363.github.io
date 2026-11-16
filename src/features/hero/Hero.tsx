@@ -28,8 +28,8 @@ export function Hero({
       className="bg-linear-to-b from-sky-50 to-paper"
     >
       <Container className="flex flex-col gap-10 py-14 sm:py-20 md:flex-row-reverse md:items-center md:justify-between">
-        <Portrait name={person.name} avatar={person.avatar} />
-        <div className="max-w-2xl">
+        <Portrait name={person.name} avatar={person.avatar} className="intro" />
+        <div className="intro-stagger max-w-2xl">
           <p className="text-sm font-medium text-sky-700">
             {person.roles.slice(0, 2).join(" · ")}
           </p>

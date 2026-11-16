@@ -18,7 +18,7 @@ export function Skills({ id, skills, languages, sectors }: SkillsProps) {
     <Section id={id} title="Skills">
       <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {groupSkills(skills).map((group) => (
-          <div key={group.title}>
+          <div key={group.title} className="reveal">
             <h3 className={subheading}>{group.title}</h3>
             <TagList items={group.skills} className="mt-3" />
           </div>

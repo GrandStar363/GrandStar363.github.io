@@ -12,14 +12,16 @@ interface ProjectCardProps {
 export function ProjectCard({ project, href }: ProjectCardProps) {
   const excerpt = firstSentence(project.summary[0] ?? "");
   return (
-    <li className="group relative flex flex-col overflow-hidden rounded-xl border border-line bg-white transition-shadow hover:shadow-[0_1px_0_0_var(--color-line),0_8px_24px_-12px_rgb(29_102_153/0.25)]">
-      <Img
-        src={project.cover.src}
-        width={project.cover.width}
-        height={project.cover.height}
-        alt=""
-        className="aspect-video w-full border-b border-line object-cover"
-      />
+    <li className="reveal group relative flex flex-col overflow-hidden rounded-xl border border-line bg-white transition-[box-shadow,translate] duration-300 ease-soft hover:-translate-y-1 hover:shadow-[0_1px_0_0_var(--color-line),0_12px_28px_-14px_rgb(29_102_153/0.3)]">
+      <div className="overflow-hidden border-b border-line">
+        <Img
+          src={project.cover.src}
+          width={project.cover.width}
+          height={project.cover.height}
+          alt=""
+          className="aspect-video w-full object-cover transition-[scale] duration-700 ease-soft group-hover:scale-[1.04]"
+        />
+      </div>
       <div className="flex flex-1 flex-col p-5">
         {project.role ? (
           <p className="text-xs text-ink-muted">{project.role}</p>

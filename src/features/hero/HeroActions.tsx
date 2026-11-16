@@ -30,7 +30,7 @@ export function HeroActions({
           external
         >
           {profile.label}
-          <ArrowUpRightIcon className="size-4 text-ink-muted" />
+          <ArrowUpRightIcon className="size-4 text-ink-muted transition-transform duration-300 ease-soft group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </ButtonLink>
       ))}
     </div>
