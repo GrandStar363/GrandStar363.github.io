@@ -1,0 +1,686 @@
+{
+  "person": {
+    "name": "Maksim Hrusheuski",
+    "roles": [
+      "Software Engineer",
+      "Full Stack Developer",
+      "Back-End Developer",
+      "Front-End Developer",
+      "Programmer"
+    ],
+    "location": "Wroclaw, Poland",
+    "available": true,
+    "verified": true,
+    "bio": "I’m a full-stack software engineer based in Wrocław with 8+ years of experience building and delivering web and cross-platform mobile products—from requirements and API design to production and ongoing support. I work across React/TypeScript, Node.js/NestJS, GraphQL, and mobile stacks like React Native and Flutter, with a strong focus on performance, reusable UI systems, accessibility, and spec-driven delivery.",
+    "avatar": {
+      "src": "/media/avatar.jpg",
+      "width": 380,
+      "height": 380
+    }
+  },
+  "rating": {
+    "average": 5,
+    "count": 5
+  },
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Russian",
+      "level": "Fluent"
+    },
+    {
+      "name": "Belarusian",
+      "level": "Advanced"
+    },
+    {
+      "name": "Polish",
+      "level": "Beginner"
+    },
+    {
+      "name": "Ukrainian",
+      "level": "Beginner"
+    }
+  ],
+  "skills": [
+    {
+      "name": "React JS",
+      "level": 92
+    },
+    {
+      "name": "TypeScript",
+      "level": 92
+    },
+    {
+      "name": "API",
+      "level": 90
+    },
+    {
+      "name": "JavaScript",
+      "level": 90
+    },
+    {
+      "name": "Node.js",
+      "level": 90
+    },
+    {
+      "name": "GraphQL",
+      "level": 85
+    },
+    {
+      "name": "MVP",
+      "level": 85
+    },
+    {
+      "name": "React Native",
+      "level": 85
+    },
+    {
+      "name": "CSS",
+      "level": 80
+    },
+    {
+      "name": "HTML5",
+      "level": 80
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 80
+    },
+    {
+      "name": "AWS",
+      "level": 75
+    },
+    {
+      "name": "Express",
+      "level": 75
+    },
+    {
+      "name": "Jira",
+      "level": 75
+    },
+    {
+      "name": "MongoDB",
+      "level": 75
+    },
+    {
+      "name": "Claude",
+      "level": 70
+    },
+    {
+      "name": "Docker",
+      "level": 70
+    },
+    {
+      "name": "Flutter",
+      "level": 70
+    },
+    {
+      "name": "GitHub CoPilot",
+      "level": 70
+    },
+    {
+      "name": "Redis",
+      "level": 70
+    },
+    {
+      "name": "Tailwind",
+      "level": 70
+    },
+    {
+      "name": "AI Chatbot",
+      "level": 65
+    },
+    {
+      "name": "Cursor Composer",
+      "level": 65
+    },
+    {
+      "name": "Stripe",
+      "level": 65
+    },
+    {
+      "name": "Kubernetes",
+      "level": 60
+    }
+  ],
+  "sectors": [
+    "Healthcare",
+    "Software & Internet",
+    "Real Estate & Construction",
+    "Financial Services",
+    "Life Sciences",
+    "Energy & Utilities",
+    "Government",
+    "Travel & Hospitality",
+    "Manufacturing",
+    "Education",
+    "Telecommunications",
+    "Computers & Electronics",
+    "Consumer Goods",
+    "Media & Entertainment",
+    "Wholesale & Distribution",
+    "Transportation & Logistics",
+    "Gaming",
+    "Other"
+  ],
+  "experience": [
+    {
+      "id": "3786527",
+      "company": "Coherent Solutions",
+      "title": "Mobile Application Developer — Flutter",
+      "start": "2026-06",
+      "end": "2026-08",
+      "summary": "Delivered a cross-platform fitness app MVP with authentication, profiles, workouts, social features, notifications, activity tracking, and QR profile sharing. Integrated REST APIs and Firebase/Auth0 OAuth and contributed reusable UI components supported by Storybook/Widgetbook."
+    },
+    {
+      "id": "3786526",
+      "company": "Coherent Solutions",
+      "title": "AI-Native Full-stack Engineer",
+      "start": "2026-03",
+      "end": "2026-06",
+      "summary": "Established repeatable AI-native engineering workflows using Claude Code, reusable agent skills/sub-agents, and specification-driven development. Structured delivery around requirements, code generation, automated tests, documentation, and review for a NestJS/PostgreSQL/React codebase."
+    },
+    {
+      "id": "3786523",
+      "company": "Coherent Solutions",
+      "title": "Group Manager (parallel responsibility)",
+      "start": "2025-08",
+      "end": null,
+      "summary": "Managed engineering delivery and team growth while continuing hands-on development. Onboarded engineers, removed access/process blockers, ran 1:1s, supported career development, prepared engineers for engineering-level assessments, and collaborated closely with product and leadership."
+    },
+    {
+      "id": "3786525",
+      "company": "Coherent Solutions",
+      "title": "AI-Augmented Mobile Applications Developer",
+      "start": "2025-04",
+      "end": "2026-03",
+      "summary": "Led a Cordova-to-React Native rewrite for iOS and Android using TypeScript, Redux Toolkit, GraphQL/Apollo, Zod, and Jest. Completed 260+ tasks across bug fixes, stories, and technical improvements, delivering major features like Message Center, eligibility, device settings, user logs, and multi-profile support, including configurable white-label screens and multilingual UI."
+    },
+    {
+      "id": "3786528",
+      "company": "Local Happinez",
+      "title": "Backend Developer",
+      "start": "2025-01",
+      "end": "2026-07",
+      "summary": "Designed and built a modular backend from scratch using Node.js, NestJS, TypeScript, GraphQL, and Apollo. Migrated the data layer from MongoDB to PostgreSQL, integrated Amazon Cognito for role-aware authentication, and Amazon S3 for media storage. Optimized data fetching with batching and pagination, enforced role-based access in resolvers, and mentored a backend developer."
+    },
+    {
+      "id": "3786529",
+      "company": "Ingenios",
+      "title": "Frontend Developer",
+      "start": "2021-11",
+      "end": "2023-03",
+      "summary": "Built responsive Vue.js and React interfaces for MarTech and commercial clients using JavaScript/HTML5/SCSS. Integrated UI with Django-backed APIs and PostgreSQL data, maintained legacy jQuery features alongside newer React interfaces, contributed to MorphMarket/ibex.ai/Creator Traffic projects, and participated in technical interviews for hiring."
+    },
+    {
+      "id": "3786524",
+      "company": "Coherent Solutions",
+      "title": "Full Stack Engineer",
+      "start": "2021-09",
+      "end": "2025-04",
+      "summary": "Delivered healthcare web and AI-augmented workflows as part of a long-running engineering effort. Built and improved React/Node/TypeScript features for admin, messaging, configuration, and booking workflows. Worked with GraphQL/Apollo and MongoDB, improved table performance using cache denormalization, DataLoader batching, and pagination strategies, and refined requirements directly with stakeholders."
+    },
+    {
+      "id": "3786530",
+      "company": "ISsoft",
+      "title": "Frontend Developer",
+      "start": "2018-06",
+      "end": "2021-09",
+      "summary": "Built React/Redux web and hybrid mobile UI for healthcare products, including Cordova applications for iOS and Android. Supported 15+ mobile apps through a shared white-label codebase, created reusable React/JSS components in Storybook, and implemented localization and WCAG accessibility improvements. Delivered tracker and to-do feature areas across multiple assignments."
+    },
+    {
+      "id": "3786531",
+      "company": "Symfa",
+      "title": "Frontend Developer",
+      "start": "2018-03",
+      "end": "2018-05",
+      "summary": "Built responsive websites and marketing pages using HTML5, CSS3, Pug, and SCSS. Delivered React/Redux features in a shared codebase and connected UI forms and CRUD flows to Node.js and MongoDB, contributing to a corporate website redesign."
+    },
+    {
+      "id": "3786532",
+      "company": "FL.ru (Free-lance.ru)",
+      "title": "Web Developer (freelance)",
+      "start": "2017-01",
+      "end": "2017-12",
+      "summary": "Delivered freelance landing and sales pages using HTML5, SCSS, JavaScript, and jQuery. Implemented responsive layouts, interactive page elements, ensured cross-browser compatibility, and supported client handoff."
+    },
+    {
+      "id": "3786533",
+      "company": "Belrusinvest",
+      "title": "Technical Specialist",
+      "start": "2017-01",
+      "end": "2017-05",
+      "summary": "Maintained an internal 1C-Bitrix portal, developed a WordPress-based alternative, and provided day-to-day IT support. Built a WordPress-based internal portal that reduced annual licensing costs by $2,513."
+    },
+    {
+      "id": "3786535",
+      "company": "A1QA",
+      "title": "Quality Assurance Intern",
+      "start": "2016-06",
+      "end": "2016-08",
+      "summary": "Tested desktop, web, and mobile applications; documented test cases and defects in Jira; and prepared Excel tracking reports."
+    },
+    {
+      "id": "3786534",
+      "company": "Fixber",
+      "title": "Quality Assurance Engineer",
+      "start": "2016-05",
+      "end": "2016-12",
+      "summary": "Performed manual testing across e-commerce, fashion, and video-streaming applications, including functional, regression, usability, and UX testing. Wrote test cases and reproducible bug reports in time to address a critical login defect."
+    },
+    {
+      "id": "3786536",
+      "company": "Self-Employed",
+      "title": "Document Digitizer",
+      "start": "2010-09",
+      "end": "2013-06",
+      "summary": "Transcribed and formatted printed educational materials in Microsoft Word, verified accuracy against source pages, and delivered ready-to-use documents."
+    }
+  ],
+  "projects": [
+    {
+      "id": "2445688",
+      "slug": "aerialgis-real-estate-gis-portal-react-django-postgis-mapbox",
+      "title": "AerialGIS Real Estate GIS Portal",
+      "role": "GIS Product Developer, Designer and Engineer",
+      "summary": [
+        "Client need: a single platform to visualise property data on a map and manage that data behind the scenes.",
+        "What I built: a WebGIS portal for property visualisation plus an admin panel for managing the underlying records, from ideation to launch.",
+        "My role: product development, design and engineering.",
+        "Tech: React, Mapbox, Django, PostgreSQL/PostGIS, cloud hosting.",
+        "Outcome: rated 5.0 by the client, who said the work was delivered in good time and planned to keep working with us."
+      ],
+      "highlights": [],
+      "skills": [
+        "Django",
+        "React",
+        "PostGIS",
+        "GIS",
+        "Mapbox"
+      ],
+      "cover": {
+        "src": "/media/projects/aerialgis-real-estate-gis-portal-react-django-postgis-mapbox.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445682",
+      "slug": "3d-modular-house-configurator",
+      "title": "3D Modular House Configurator",
+      "role": null,
+      "summary": [
+        "Developed an interactive 3D configurator for modular house exterior customization, allowing users to personalize and visualize different exterior options in real time. The system enables selection of facade materials, colors, roof styles, windows, doors, and additional architectural elements with instant 3D updates.",
+        "Customers could explore and customize modular house"
+      ],
+      "highlights": [
+        {
+          "heading": "Task",
+          "items": [
+            "3D visualization and real-time customization",
+            "Interactive user interface design",
+            "Configuration logic implementation",
+            "Responsive desktop and mobile experience",
+            "Performance optimization and integration with the website"
+          ]
+        }
+      ],
+      "skills": [
+        "Three.js",
+        "React",
+        "AR & VR",
+        "WebGL",
+        "Figma"
+      ],
+      "cover": {
+        "src": "/media/projects/3d-modular-house-configurator.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": {
+        "src": "/media/projects/3d-modular-house-configurator.mp4",
+        "width": 640,
+        "height": 360
+      }
+    },
+    {
+      "id": "2445703",
+      "slug": "testpriser-ai-hospital-finder",
+      "title": "Testpriser - AI Hospital Finder",
+      "role": "Full Stack Mern Developer",
+      "summary": [
+        "Help us develop Sweden's first price-comparing site for healthcare services with a focus on PCR tests."
+      ],
+      "highlights": [
+        {
+          "heading": "Responsibilities",
+          "items": [
+            "Figma to NextJS pages",
+            "Backend API creation",
+            "API Integration",
+            "Google Map Integration",
+            "MongoDB Database",
+            "Admin Panel Integration"
+          ]
+        }
+      ],
+      "skills": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "MongoDB",
+        "Node.js"
+      ],
+      "cover": {
+        "src": "/media/projects/testpriser-ai-hospital-finder.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445700",
+      "slug": "gtplux-boat-booking-platform-multi-language",
+      "title": "GTPLUX - Boat Booking Platform (Multi-language)",
+      "role": "Full-Stack Developer & System Architect",
+      "summary": [
+        "Developed complete boat booking platform for GTPLUX with multi-language support, payment processing, and comprehensive admin analytics."
+      ],
+      "highlights": [
+        {
+          "heading": "Core features",
+          "items": [
+            "React frontend with Laravel backend API",
+            "Multi-language system (i18n) with JSON files for international markets",
+            "Integrated payments: Stripe + PayPal",
+            "Real-time boat availability search with FullCalendar",
+            "Responsive design: Tailwind CSS + Bootstrap",
+            "User authentication and booking workflow",
+            "Admin dashboard: sales analytics, booking management, customer database, revenue reports, retargeting tools"
+          ]
+        }
+      ],
+      "skills": [
+        "Tailwind CSS",
+        "REST API",
+        "Laravel",
+        "React",
+        "MySQL",
+        "FullCalendar",
+        "Stripe",
+        "PayPal",
+        "i18n"
+      ],
+      "cover": {
+        "src": "/media/projects/gtplux-boat-booking-platform-multi-language.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445698",
+      "slug": "smart-e-commerce-website-modern-for-security-iot-products",
+      "title": "Smart E-Commerce Website Modern for Security & IoT Products",
+      "role": "Website Developer",
+      "summary": [
+        "I designed a modern and user-friendly e-commerce website for a Smart Home & Security product brand. The website includes a clean homepage hero, category-based product browsing, featured deals, best-selling items, product cards, client testimonials, and an elegant footer. My focus was on clean layout, strong hierarchy, smooth user experience, and easy navigation to help customers explore and buy smart home devices effortlessly."
+      ],
+      "highlights": [],
+      "skills": [
+        "UI/UX Prototyping",
+        "Ecommerce Website Development",
+        "Responsive Design",
+        "Front-End Development",
+        "Back-End Development"
+      ],
+      "cover": {
+        "src": "/media/projects/smart-e-commerce-website-modern-for-security-iot-products.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445697",
+      "slug": "smart-track-booking-management-app-mobile-app-development",
+      "title": "Smart Track Booking & Management App",
+      "role": "Mobile App Developer",
+      "summary": [
+        "My Tracks is a smart track booking and management app designed for racing enthusiasts, event organizers, and track owners. Users can explore tracks, book slots, manage payments, and track their booking history in one place. The app offers features like profile management, secure payments, feedback system, and privacy controls. With an easy-to-use interface, My Tracks simplifies the entire process of finding, reserving, and managing racing tracks or events, ensuring a seamless and enjoyable experience for all users."
+      ],
+      "highlights": [],
+      "skills": [
+        "Front-End Development",
+        "App Development",
+        "Flutter",
+        "Mobile App Design",
+        "Mobile App Development"
+      ],
+      "cover": {
+        "src": "/media/projects/smart-track-booking-management-app-mobile-app-development.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445696",
+      "slug": "nur-ai-powered-islamic-app-flutter",
+      "title": "NUR – AI-Powered Islamic App (Flutter)",
+      "role": "Flutter Developer | UI/UX Designer | Backend Integrator",
+      "summary": [
+        "NUR is a thoughtfully designed Islamic mobile app that helps users strengthen their faith through daily connection, learning, and reflection."
+      ],
+      "highlights": [
+        {
+          "heading": "Key Features Developed",
+          "items": [
+            "Stream or read the Qur’an with audio recitations from world-renowned Qaris.",
+            "Track Salah habits and receive gentle reminders to build discipline.",
+            "Submit or read Duas from Muslims around the world.",
+            "Ask Islamic questions via chat.",
+            "Daily reflections, reminders, and faith-building prompts.",
+            "Integrated 7-day trial with subscription-based access afterward."
+          ]
+        }
+      ],
+      "skills": [
+        "Flutter",
+        "Laravel",
+        "OpenAI API",
+        "Figma",
+        "MySQL"
+      ],
+      "cover": {
+        "src": "/media/projects/nur-ai-powered-islamic-app-flutter.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445694",
+      "slug": "medigo-online-pharmacy-medicine-delivery-mobile-app-development",
+      "title": "MediGo – Online Pharmacy & Medicine Delivery",
+      "role": "Professional Mobile App Development",
+      "summary": [
+        "MediGo is your trusted online pharmacy, designed to make healthcare simple, fast, and reliable. With just a few taps, you can search, order, and receive medicines delivered instantly to your doorstep. MediGo ensures convenience by allowing prescription uploads, secure digital payments, and subscription plans for recurring needs. Backed by verified pharmacies, real-time order tracking, and customer support, MediGo brings affordable healthcare access anytime, anywhere. Your complete pharmacy, now in your pocket."
+      ],
+      "highlights": [],
+      "skills": [
+        "UX & UI Design",
+        "App Development",
+        "Mobile App",
+        "Flutter",
+        "Mobile App Development"
+      ],
+      "cover": {
+        "src": "/media/projects/medigo-online-pharmacy-medicine-delivery-mobile-app-development.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445693",
+      "slug": "restaurant-discount-loyalty-platform-mobile-app-website",
+      "title": "Restaurant Discount & Loyalty Platform (Mobile App & Website)",
+      "role": "Professional Mobile App Development",
+      "summary": [
+        "This Restaurant Discount & Loyalty Platform is designed to make dining more affordable and rewarding. Users can explore restaurants, unlock exclusive deals, and redeem instant coupons instantly. With GPS-based offers, no hidden fees, and a smooth loyalty rewards system, the mobile app development ensures a seamless experience for Android and iOS users. Built with modern technology, it supports fast performance, secure payments, real-time notifications, and easy access via Android app development and web platforms."
+      ],
+      "highlights": [],
+      "skills": [
+        "App Development",
+        "Mobile App",
+        "Mobile App Development",
+        "React Native",
+        "Ecommerce"
+      ],
+      "cover": {
+        "src": "/media/projects/restaurant-discount-loyalty-platform-mobile-app-website.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": null
+    },
+    {
+      "id": "2445683",
+      "slug": "ar-try-on-8thwall-3d-models-threejs-product-visualization",
+      "title": "AR | try-on | 8thWall | 3D models | Three.js | Product visualization",
+      "role": "3D Configurator & AR/VR | WebGL Three.js | Unity | AI Integration",
+      "summary": [
+        "Client's request: an innovative solution that will allow potential buyers to visualize bathroom products such as sanitary ware and tiles in their own space, enabling them to experiment with different styles, colors, and designs in real-time"
+      ],
+      "highlights": [],
+      "skills": [
+        "3D Rendering",
+        "Three.js",
+        "Interactive Design",
+        "AR & VR",
+        "React",
+        "Unity",
+        "WebGL",
+        "AR & VR Development",
+        "Virtual Reality",
+        "XR",
+        "WebXR",
+        "JavaScript",
+        "3D Modeling",
+        "Visualization",
+        "3D Configurator",
+        "Next.js",
+        "MVP",
+        "E-commerce",
+        "Photorealistic Rendering",
+        "Babylon.js",
+        "Webflow",
+        "WordPress",
+        "WooCommerce",
+        "AWS S3",
+        "Vercel",
+        "STL",
+        "PLY",
+        "Web Development",
+        "Full-Stack",
+        "Front-End Development",
+        "API Integration"
+      ],
+      "cover": {
+        "src": "/media/projects/ar-try-on-8thwall-3d-models-threejs-product-visualization.jpg",
+        "width": 720,
+        "height": 405
+      },
+      "video": {
+        "src": "/media/projects/ar-try-on-8thwall-3d-models-threejs-product-visualization.mp4",
+        "width": 640,
+        "height": 360
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "52064",
+      "author": "Diana",
+      "project": "GTPLUX - Boat Booking Platform (Multi-language)",
+      "projectSlug": "gtplux-boat-booking-platform-multi-language",
+      "quote": "Excellent work on our boat booking platform! The booking process, payment integrations, and multilingual features work smoothly. The admin dashboard makes managing reservations and tracking sales much easier. Great communication and professional delivery!"
+    },
+    {
+      "id": "52063",
+      "author": "Anthony",
+      "project": "3D Modular House Configurator",
+      "projectSlug": "3d-modular-house-configurator",
+      "quote": "Great work on our 3D modular house configurator. The real-time customization works smoothly, and customers can easily explore different materials, colors, and design options. Professional communication and a great final result!"
+    },
+    {
+      "id": "52062",
+      "author": "Don Sealy",
+      "project": "AerialGIS Real Estate GIS Portal",
+      "projectSlug": "aerialgis-real-estate-gis-portal-react-django-postgis-mapbox",
+      "quote": "Maksim Hrusheuski delivered an outstanding WebGIS portal for our real estate platform. He handled everything from product ideation and design to full engineering — building a clean React + Mapbox frontend for property visualisation and a solid Django + PostGIS admin panel for data management. The work was completed on time, the quality was excellent, and we rated him 5.0. We fully intend to continue working with him."
+    },
+    {
+      "id": "52061",
+      "author": "Jack",
+      "project": "Testpriser - AI Hospital Finder",
+      "projectSlug": "testpriser-ai-hospital-finder",
+      "quote": "Maksim Hrusheuski played a key role in building Testpriser, Sweden’s first price-comparing platform for healthcare services. He translated our Figma designs into clean, responsive Next.js pages, developed solid backend APIs with Node.js and MongoDB, and smoothly integrated Google Maps and third-party services. His code was reliable, well-structured, and delivered on time. A true full-stack professional."
+    },
+    {
+      "id": "52058",
+      "author": "Mathew",
+      "project": "Focus Streak - Habit Tracker",
+      "projectSlug": null,
+      "quote": "Maksim Hrusheuski is an outstanding React Native and Expo developer. He built our consumer habit-tracking app from the ground up with clean architecture, offline-first support, and a polished user experience. He moves fast, writes maintainable code, and always delivers production-ready features. Highly recommended."
+    }
+  ],
+  "degrees": [
+    {
+      "qualification": "Bachelor of Engineering (BE)",
+      "institution": "Belarusian State University of Informatics and Radioelectronics (BSUIR)",
+      "startYear": 2017,
+      "endYear": 2021
+    },
+    {
+      "qualification": "Associate’s Degree",
+      "institution": "Minsk Radioengineering College (BSUIR Affiliate)",
+      "startYear": 2013,
+      "endYear": 2017
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AI Fluency: Framework & Foundations"
+    },
+    {
+      "name": "Claude Code"
+    },
+    {
+      "name": "Agent Skills"
+    },
+    {
+      "name": "MCP (Model Context Protocol)"
+    },
+    {
+      "name": "Claude API"
+    },
+    {
+      "name": "Responsive Web Design"
+    },
+    {
+      "name": "SQL Tutorial"
+    },
+    {
+      "name": "jQuery Tutorial Course"
+    },
+    {
+      "name": "Introduction to Agent Skills"
+    }
+  ]
+}
