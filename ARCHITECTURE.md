@@ -1,30 +1,30 @@
-# Architecture
+# Architecture Guidelines
 
-These principles apply to every change in this repository, regardless of the language, framework, or tech stack involved.
+Priority order when rules conflict: (1) don't break existing behavior,
+(2) match existing conventions in this codebase, (3) keep diffs small and
+focused, (4) the principles below.
 
-## 1. Feature Separation & Isolation
+## Structure
 
-- **Domain Isolation**: Group code by feature or domain, not by technical role. Keep all files related to a single feature encapsulated together.
-- **Uncoupled Modules**: Ensure features are completely isolated from one another. Never cross-pollute business logic between unrelated domains.
-- **Explicit Interfaces**: Features must interact with each other only through clear, public APIs, contracts, or dependency injection points.
+- Organize by feature/domain, not technical role. Keep a feature's files together.
+- Features talk to each other only through their public interface (exports,
+  contracts, injected dependencies), never by reaching into internals.
+- Keep UI, business logic, data access, and external service calls in separate layers.
 
-## 2. Componentization & Reusability
+## Design
 
-- **Single Responsibility Principle (SRP)**: Every component, class, module, and function must have exactly one reason to change.
-- **Configurable Entities**: Build generic, parametric, or configurable building blocks rather than hardcoded, single-use structures.
-- **Composition over Inheritance**: Favor object or behavioral composition over deep inheritance trees or duplicated code structures.
+- One reason to change per function/module/class. Split when a unit does
+  two unrelated things, not just because it's long.
+- Prefer composition over inheritance.
+- Don't add abstraction or configurability until there's a second real use case.
+- Validate and parse input at system boundaries; trust typed data inside them.
 
-## 3. Maintenance & Maintainability (Easy to Repair)
+## Making changes
 
-- **Predictable Side Effects**: Write functions that minimize side effects. Keep logic deterministic so components are easy to isolate and test.
-- **Small Blast Radius**: When fixing or updating a feature, isolate the changes so they cannot unexpectedly break or impact adjacent features.
-- **Self-Documenting Code**: Prioritize clean naming and small file sizes (ideally keeping units under 50 lines of executable code) over complex documentation.
-
-## 4. Layered Architecture & Separation of Concerns
-
-- **Logic Separation**: Strictly decouple user interface layers, business rules, data-access layers, and external service contracts.
-- **Data Integrity**: Enforce strict data models and schemas at the boundaries. Validate and sanitize inputs cleanly before passing data between layers.
-- **Clean House**: When modifying code, completely remove dead code, unused dependencies, or orphaned variables left behind.
+- Fix the problem asked about. Don't refactor unrelated code; mention it instead.
+- Remove code your change made dead (unused imports, variables, helpers).
+  Don't delete other pre-existing code without asking.
+- Ask before large restructures, new dependencies, or public API changes.
 
 ---
 
