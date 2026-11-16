@@ -11,9 +11,11 @@ prerendered to static HTML and deployed to GitHub Pages.
 Next.js 16 (App Router, static export) · React 19 · TypeScript (strict) · Tailwind CSS 4 · Zod ·
 Vitest + Testing Library · Playwright + axe · GitHub Actions.
 
-Every page is rendered at build time by Server Components. Client-side JavaScript is limited to three
-small pieces: the mobile menu, the timer that rotates the hero's background scenes, and the intro
-loader's counter. All motion is CSS-first and turns off for visitors who prefer reduced motion.
+Every page is rendered at build time by Server Components. Client-side JavaScript is limited to a few
+small pieces: the mobile menu, the timer that rotates the background scenes (and the hero strip that
+names them), the intro loader's counter, and the theme toggle. All motion is CSS-first and turns off
+for visitors who prefer reduced motion. Light and dark themes follow the OS setting until the visitor
+picks one.
 
 ## Architecture
 
@@ -21,7 +23,7 @@ loader's counter. All motion is CSS-first and turns off for visitors who prefer 
 scripts/twine-sync/   Ingestion: fetch Twine → validate raw shapes → map to domain → write snapshot + media
 src/content/          Contract: Zod domain schema, generated profile.json, hand-authored site.config.ts
 src/shared/           Domain-agnostic UI primitives and helpers
-src/features/<name>/  Isolated features (hero, backdrop, loader, experience, projects, skills, reviews, education, contact, navigation)
+src/features/<name>/  Isolated features (hero, backdrop, loader, theme, experience, projects, skills, reviews, education, contact, navigation)
 src/app/              Composition: routes, layout, metadata; the only place features meet
 ```
 

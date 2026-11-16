@@ -1,4 +1,5 @@
 import { profile, siteConfig } from "@/content";
+import { WorkLegend } from "@/features/backdrop";
 import { Contact } from "@/features/contact";
 import { Education } from "@/features/education";
 import { Experience } from "@/features/experience";
@@ -19,6 +20,9 @@ export default function HomePage() {
         primaryEmail={siteConfig.emails[0]}
         projectsHref="#projects"
         profiles={siteConfig.profiles}
+        aside={
+          <WorkLegend projects={profile.projects} sectors={profile.sectors} />
+        }
       />
       <ProjectsGrid
         id="projects"

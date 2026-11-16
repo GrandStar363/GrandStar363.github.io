@@ -3,8 +3,8 @@ import { profile, siteConfig } from "@/content";
 import { WorkBackdrop } from "@/features/backdrop";
 import { INTRO_SEEN_SCRIPT, IntroLoader } from "@/features/loader";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
+import { THEME_SCRIPT, ThemeToggle } from "@/features/theme";
 import { cn } from "@/shared/lib/cn";
-import { routes } from "@/shared/lib/routes";
 import { inter, newsreader } from "./fonts";
 import { personJsonLd, siteMetadata } from "./seo";
 import "./globals.css";
@@ -20,12 +20,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       id="top"
       className={cn(inter.variable, newsreader.variable)}
-      // The intro script may mark <html> as "intro seen" before React hydrates.
+      // The theme and intro scripts set data attributes on <html> before React hydrates.
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col">
         {/* Runs before the loader is parsed. Kept out of <head>: hosts such as Netlify inject
             comments there, and a non-metadata element in <head> then fails hydration. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: INTRO_SEEN_SCRIPT }} />
         <IntroLoader
           name={person.name}
@@ -38,12 +39,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <WorkBackdrop
-          projects={profile.projects}
-          sectors={profile.sectors}
-          captionPath={routes.home}
+        <WorkBackdrop projects={profile.projects} sectors={profile.sectors} />
+        <SiteHeader
+          name={person.name}
+          items={siteConfig.nav}
+          actions={<ThemeToggle />}
         />
-        <SiteHeader name={person.name} items={siteConfig.nav} />
         <div className="flex-1">{children}</div>
         <SiteFooter
           name={person.name}

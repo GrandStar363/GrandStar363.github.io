@@ -1,4 +1,5 @@
 import { useEffect, type RefObject } from "react";
+import { activeScene } from "./active-scene";
 
 /**
  * Moves the `data-active` flag through the `[data-scene]` children every interval.
@@ -17,7 +18,7 @@ export function useSceneCycle(
     );
     if (scenes.length < 2) return;
 
-    let index = 0;
+    let index = activeScene.get();
     let onScreen = true;
     const advance = () => {
       if (!onScreen || document.hidden) return;
@@ -25,6 +26,7 @@ export function useSceneCycle(
       scenes.forEach((scene, i) =>
         scene.toggleAttribute("data-active", i === index),
       );
+      activeScene.set(index);
     };
     const timer = window.setInterval(advance, intervalMs);
     const observer = new IntersectionObserver(([entry]) => {

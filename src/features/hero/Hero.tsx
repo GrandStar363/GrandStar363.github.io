@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { ExternalProfile, Person, Rating } from "@/content";
 import { Container } from "@/shared/ui/Container";
 import { TagList } from "@/shared/ui/TagList";
@@ -13,6 +14,8 @@ interface HeroProps {
   primaryEmail: string;
   projectsHref: string;
   profiles: readonly ExternalProfile[];
+  /** Full-width strip under the hero content on wide screens. */
+  aside?: ReactNode;
 }
 
 /** On wide screens the right side stays open for the site's background artwork. */
@@ -23,13 +26,14 @@ export function Hero({
   primaryEmail,
   projectsHref,
   profiles,
+  aside,
 }: HeroProps) {
   return (
     <section
       aria-labelledby="hero-title"
       className="bg-linear-to-b from-sky-50/70 to-transparent"
     >
-      <Container className="flex flex-col gap-10 py-14 sm:py-20 md:flex-row-reverse md:items-center md:justify-between lg:flex-row">
+      <Container className="flex flex-col gap-10 py-14 sm:py-20 md:flex-row-reverse md:items-center md:justify-between lg:flex-row lg:pb-10">
         <Portrait
           name={person.name}
           avatar={person.avatar}
@@ -49,6 +53,9 @@ export function Hero({
           />
         </div>
       </Container>
+      {aside ? (
+        <Container className="intro hidden pb-12 lg:block">{aside}</Container>
+      ) : null}
     </section>
   );
 }

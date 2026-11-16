@@ -58,40 +58,43 @@ test("survives comments injected into <head> by the host", async ({ page }) => {
 test.describe("work backdrop", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  test("rotates through the project scenes", async ({ page }) => {
+  test("rotates through the topics, with the hero strip in step", async ({
+    page,
+  }) => {
     await page.clock.install();
     await page.goto("/");
     const scenes = page.locator("[data-scene]");
+    const hero = page.locator("section").first();
     await expect(scenes).toHaveCount(9);
     await expect(scenes.nth(0)).toHaveAttribute("data-active", "");
-    await expect(scenes.nth(0)).toContainText("3D Modular House Configurator");
-    await page.clock.fastForward(4_000);
+    await expect(
+      hero.getByText("3D configurators", { exact: true }),
+    ).toBeVisible();
+
+    await page.clock.fastForward(4_600);
     await expect(scenes.nth(1)).toHaveAttribute("data-active", "");
     await expect(scenes.nth(0)).not.toHaveAttribute("data-active", "");
+    await expect(
+      hero.getByText("GIS & mapping", { exact: true }),
+    ).toBeVisible();
   });
 
-  test("keeps running across page navigation, with captions on home only", async ({
-    page,
-  }) => {
+  test("keeps running across page navigation", async ({ page }) => {
     await page.goto("/");
-    const layer = page.locator("[data-captions]");
-    await expect(layer).toHaveCount(1);
-    await expect(
-      page.getByText("3D configurators", { exact: true }),
-    ).toBeVisible();
+    const layer = page.locator("[data-scene]").first().locator("..");
     await layer.evaluate((element) => Object.assign(element, { keep: true }));
 
     await page.locator("#projects").getByRole("link").first().click();
     await expect(page).toHaveURL(/\/projects\//);
-    await expect(page.locator("[data-captions]")).toHaveCount(0);
-    const scenes = page.locator("[data-scene]");
-    await expect(scenes).toHaveCount(9);
+    await expect(page.locator("[data-scene]")).toHaveCount(9);
     expect(
-      await scenes
+      await page
+        .locator("[data-scene]")
         .first()
         .evaluate((scene) => "keep" in (scene.parentElement ?? {})),
       "background layer was not remounted",
     ).toBe(true);
+    await expect(page.getByText("01 / 09")).toHaveCount(0);
   });
 
   test("holds the first scene still for reduced motion", async ({ page }) => {

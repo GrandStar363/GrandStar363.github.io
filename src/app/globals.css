@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
-/* Light-only "warm sky" palette. The default Tailwind palette is removed on purpose:
-   components may only use these tokens. `static` emits every token, so CSS modules can use them. */
+/* `dark:` utilities follow the theme chosen on <html data-theme>, not just the OS setting. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* "Warm sky" palette (dark values are overridden below). The default Tailwind palette is removed on
+   purpose: components may only use these tokens. `static` emits every token, so CSS modules can use them. */
 @theme static {
   --color-*: initial;
   --color-transparent: transparent;
@@ -30,6 +33,24 @@
     color-scheme: light;
   }
 
+  /* Night-sky theme: the same token names with dark values, so every component, the background
+     artwork and the loader follow. "white" is the raised surface colour (cards, buttons). */
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-white: #111a2e;
+    --color-paper: #0a1120;
+    --color-sky-50: #0f1b30;
+    --color-sky-100: #14253f;
+    --color-sky-200: #1f3d63;
+    --color-sky-600: #5aaee8;
+    --color-sky-700: #84c4f2;
+    --color-sky-800: #b3dcf8;
+    --color-ink: #e7eef7;
+    --color-ink-muted: #9fb0c3;
+    --color-line: #213049;
+    --color-sun: #f2b766;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
@@ -45,6 +66,9 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   ::selection {

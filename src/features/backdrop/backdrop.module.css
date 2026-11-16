@@ -60,7 +60,6 @@
   right: 0;
   width: 100%;
   height: calc(100% - 4rem);
-  transform-origin: 50% 0;
   mask-image: radial-gradient(
     ellipse 62% 68% at 58% 50%,
     #000 58%,
@@ -133,37 +132,9 @@
   font: 600 10px/1 var(--font-sans);
 }
 
-/* Captions show only where the composition layer asks for them (data-captions), on the first
-   screen: the artwork starts a little smaller to make room, then grows as the caption fades on
-   scroll. Without scroll-driven animations (or with reduced motion) captions stay hidden. */
-.captionDock {
-  display: none;
-  position: absolute;
-  right: max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem));
-  bottom: 1.25rem;
-  width: min(24rem, calc(100vw - 3rem));
-  text-align: right;
-}
-
-@supports (animation-timeline: scroll()) {
-  @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
-    .root[data-captions] .captionDock {
-      display: block;
-      animation: dock-fade linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 35vh;
-    }
-
-    .root[data-captions] .art {
-      animation: art-grow linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 35vh;
-    }
-  }
-}
-
-.scene[data-active] .caption {
-  animation: rise 0.6s var(--ease-soft) 0.15s both;
+/* Hero legend strip: re-mounted on every topic change, so it rises in each time. */
+.legend {
+  animation: rise 0.6s var(--ease-soft) both;
 }
 
 /* Time left on the current topic. */
@@ -171,11 +142,8 @@
   height: 2px;
   margin-top: 0.875rem;
   background: var(--color-sky-600);
-  transform-origin: right;
-}
-
-.scene[data-active] .timer {
-  animation: grow-x var(--scene-ms, 3.5s) linear both;
+  transform-origin: left;
+  animation: grow-x var(--scene-ms, 4.5s) linear both;
 }
 
 /* Entrance effects, staggered by --i. */
@@ -254,21 +222,6 @@
   }
   to {
     opacity: var(--rest-opacity);
-  }
-}
-
-@keyframes dock-fade {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes art-grow {
-  from {
-    transform: scale(0.76);
-  }
-  to {
-    transform: none;
   }
 }
 
