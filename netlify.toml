@@ -1,0 +1,13 @@
+# Netlify build settings. The site is a fully static Next.js export.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Next.js emits content-hashed file names under /_next/static, so they can be cached forever.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

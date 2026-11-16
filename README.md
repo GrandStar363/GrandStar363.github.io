@@ -49,3 +49,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full rules.
 Never hand-edit the snapshot. If something imports badly, fix the mapper or parser in
 `scripts/twine-sync/`, add a test, and re-sync. Hand-written values such as email, navigation and
 the featured stack live in `src/content/site.config.ts`.
+
+## Deploying to Netlify
+
+`netlify.toml` holds the build settings (`npm run build`, publish `out/`, Node 24), so importing the
+repository in Netlify needs no manual configuration. Netlify exposes the site's primary address as
+`URL` during builds, and the site uses it for canonical links, the sitemap and social previews. Set
+`SITE_URL` to override it, for example when a custom domain is the primary address.

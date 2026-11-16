@@ -30,7 +30,7 @@ These principles apply to every change in this repository, regardless of the lan
 
 ## How the rules map onto this project
 
-Next.js App Router with static export (`output: "export"`), deployed to GitHub Pages at https://grandstar363.github.io/.
+Next.js App Router with static export (`output: "export"`), deployed to GitHub Pages at https://grandstar363.github.io/ and optionally to Netlify (`netlify.toml`).
 
 | Layer                         | Path                   | May import                                              |
 | ----------------------------- | ---------------------- | ------------------------------------------------------- |
