@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Light-only "warm sky" palette. The default Tailwind palette is removed on purpose:
+   components may only use these tokens. */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-paper: #fffcf7;
+  --color-sky-50: #eef6fc;
+  --color-sky-100: #e3f0fa;
+  --color-sky-200: #c9e2f5;
+  --color-sky-600: #2c7fb8;
+  --color-sky-700: #1d6699;
+  --color-sky-800: #17537d;
+  --color-ink: #1f2933;
+  --color-ink-muted: #56636f;
+  --color-line: #e8e2d6;
+  --color-sun: #e9a54b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-sky-200);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sky-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
