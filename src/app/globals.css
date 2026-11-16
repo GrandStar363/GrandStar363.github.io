@@ -35,6 +35,11 @@
     scroll-padding-top: 5rem;
   }
 
+  /* While the intro loader plays, entrance animations wait for it to lift. */
+  html:not([data-intro-seen]) {
+    --intro-offset: 2.15s;
+  }
+
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
@@ -64,12 +69,6 @@
       animation: none !important;
     }
   }
-
-  /* Set by the custom cursor feature on mouse devices; the dot and ring replace the system cursor. */
-  html.custom-cursor,
-  html.custom-cursor * {
-    cursor: none !important;
-  }
 }
 
 /* Motion: small, CSS-first and progressive. Browsers without scroll-driven animations
@@ -98,23 +97,25 @@
   /* Page-load entrance: direct children rise in one after another. */
   .intro-stagger > *,
   .intro {
+    --step: 0;
     animation: rise 0.7s var(--ease-soft) both;
+    animation-delay: calc(var(--intro-offset, 0s) + var(--step) * 70ms);
   }
 
   .intro-stagger > :nth-child(2) {
-    animation-delay: 70ms;
+    --step: 1;
   }
   .intro-stagger > :nth-child(3) {
-    animation-delay: 140ms;
+    --step: 2;
   }
   .intro-stagger > :nth-child(4) {
-    animation-delay: 210ms;
+    --step: 3;
   }
   .intro-stagger > :nth-child(5) {
-    animation-delay: 280ms;
+    --step: 4;
   }
   .intro-stagger > :nth-child(n + 6) {
-    animation-delay: 350ms;
+    --step: 5;
   }
 
   /* Fade up while scrolling into view; driven by the scroll position, no JavaScript. */

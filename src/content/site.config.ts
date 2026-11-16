@@ -28,6 +28,7 @@ export const siteConfig = siteConfigSchema.parse({
     "React Native",
     "Flutter",
   ],
+  tagline: ["Full-stack engineer", "React", "3D", "GIS"],
   nav: [
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },

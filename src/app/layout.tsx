@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { profile, siteConfig } from "@/content";
-import { CustomCursor } from "@/features/cursor";
+import { INTRO_SEEN_SCRIPT, IntroLoader } from "@/features/loader";
 import { SiteFooter, SiteHeader } from "@/features/navigation";
 import { cn } from "@/shared/lib/cn";
 import { inter, newsreader } from "./fonts";
@@ -18,8 +18,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       id="top"
       className={cn(inter.variable, newsreader.variable)}
+      // The intro script may mark <html> as "intro seen" before React hydrates.
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SEEN_SCRIPT }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
+        <IntroLoader
+          name={person.name}
+          location={person.location}
+          tagline={siteConfig.tagline}
+        />
         <a
           href="#main"
           className="sr-only z-30 rounded-lg bg-white px-4 py-2 text-sm text-sky-700 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
@@ -33,7 +43,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           year={BUILD_YEAR}
           profiles={siteConfig.profiles}
         />
-        <CustomCursor />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

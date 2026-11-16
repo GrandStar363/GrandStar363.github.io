@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 import profile from "../../src/content/profile.json";
 
 test.use({ viewport: { width: 375, height: 812 } });
@@ -11,6 +11,11 @@ test("has no horizontal overflow", async ({ page }) => {
     );
     expect(overflow, path).toBeLessThanOrEqual(0);
   }
+});
+
+test("hides the decorative backdrop on small screens", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("[data-scene]").first()).toBeHidden();
 });
 
 test("menu opens, navigates, and closes", async ({ page }) => {

@@ -118,6 +118,8 @@ export const siteConfigSchema = z.object({
   emails: z.tuple([z.email()], z.email()),
   profiles: z.array(externalProfileSchema),
   featuredStack: z.array(text).min(1),
+  /** Short descriptors shown under the name on the intro loader. */
+  tagline: z.array(text).min(1),
   nav: z.array(navItemSchema).min(1),
 });
 

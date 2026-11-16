@@ -1,32 +1,56 @@
-import { expect, test } from "@playwright/test";
+import { test as fresh } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
-test("custom cursor follows the mouse and reacts to links", async ({
-  page,
-}) => {
-  await page.goto("/");
-  const layer = page.locator("[data-cursor-dot]").locator("..");
-  await expect(page.locator("html")).toHaveClass(/custom-cursor/);
+fresh.describe("intro loader", () => {
+  fresh(
+    "counts to 100% and then lifts away, once per session",
+    async ({ page }) => {
+      await page.goto("/");
+      const loader = page.locator("[data-intro-loader]");
+      await expect(loader).toBeVisible();
+      await expect(loader).toContainText("100", { timeout: 5_000 });
+      await expect(loader).toBeHidden({ timeout: 5_000 });
+      await expect(page.getByRole("link", { name: "Email me" })).toBeVisible();
 
-  await page.mouse.move(200, 300);
-  await expect(layer).toHaveAttribute("data-visible", "");
-  // Rendered, not just flagged: fixed, opaque and 6px centred on the pointer.
-  await expect(layer).toHaveCSS("position", "fixed");
-  await expect(layer).toHaveCSS("opacity", "1");
-  const dot = page.locator("[data-cursor-dot]");
-  await expect(dot).toHaveCSS("translate", "200px 300px");
-  expect(await dot.boundingBox()).toMatchObject({
-    x: 197,
-    y: 297,
-    width: 6,
-    height: 6,
+      await page.reload();
+      await expect(loader).toBeHidden();
+    },
+  );
+
+  fresh("is skipped for reduced motion", async ({ browser }) => {
+    const page = await browser.newPage({ reducedMotion: "reduce" });
+    await page.goto("/");
+    await expect(page.locator("[data-intro-loader]")).toBeHidden();
+    await page.close();
+  });
+});
+
+test.describe("work backdrop", () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test("rotates through the project scenes", async ({ page }) => {
+    await page.clock.install();
+    await page.goto("/");
+    const scenes = page.locator("[data-scene]");
+    await expect(scenes).toHaveCount(4);
+    await expect(scenes.nth(0)).toHaveAttribute("data-active", "");
+    await expect(scenes.nth(0)).toContainText("3D Modular House Configurator");
+    await page.clock.fastForward(8_000);
+    await expect(scenes.nth(1)).toHaveAttribute("data-active", "");
+    await expect(scenes.nth(0)).not.toHaveAttribute("data-active", "");
   });
 
-  const link = page.getByRole("link", { name: "View projects" });
-  await link.hover();
-  await expect(layer).toHaveAttribute("data-hover", "");
-  expect(
-    await link.evaluate((element) => getComputedStyle(element).cursor),
-  ).toBe("none");
+  test("holds the first scene still for reduced motion", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.clock.install();
+    await page.goto("/");
+    await page.clock.fastForward(16_000);
+    await expect(page.locator("[data-scene][data-active]")).toHaveCount(1);
+    await expect(page.locator("[data-scene]").nth(0)).toHaveAttribute(
+      "data-active",
+      "",
+    );
+  });
 });
 
 test("content revealed on scroll ends fully visible", async ({ page }) => {
@@ -40,20 +64,13 @@ test("content revealed on scroll ends fully visible", async ({ page }) => {
     .toBe("1");
 });
 
-test.describe("with reduced motion", () => {
-  test.use({ reducedMotion: "reduce" });
-
-  test("keeps the system cursor and shows everything without animation", async ({
-    page,
-  }) => {
-    await page.goto("/");
-    await page.mouse.move(200, 300);
-    await expect(page.locator("html")).not.toHaveClass(/custom-cursor/);
-    const opacities = await page
-      .locator(".reveal, .intro, .intro-stagger > *")
-      .evaluateAll((elements) =>
-        elements.map((element) => getComputedStyle(element).opacity),
-      );
-    expect(new Set(opacities)).toEqual(new Set(["1"]));
-  });
+test("reduced motion shows everything without animation", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const opacities = await page
+    .locator(".reveal, .intro, .intro-stagger > *")
+    .evaluateAll((elements) =>
+      elements.map((element) => getComputedStyle(element).opacity),
+    );
+  expect(new Set(opacities)).toEqual(new Set(["1"]));
 });
